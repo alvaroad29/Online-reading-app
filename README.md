@@ -2,7 +2,7 @@
 
 Permite a los usuarios leer libros en línea, subir su propio contenido, crear listas, calificar y llevar un historial de lectura.  
 
-## ⚡ Características principales
+## Características principales
 - **Roles de usuario:** Usuario, Autor y Administrador.  
 - **Gestión de contenido:** Los autores pueden subir novelas y capítulos.  
 - **Listas personalizadas:** Los usuarios pueden crear listas públicas o privadas.  
@@ -12,7 +12,7 @@ Permite a los usuarios leer libros en línea, subir su propio contenido, crear l
 - **Seguridad y autenticación:** JWT Authentication con Identity.  
 - **Trabajo colaborativo:** Integración de buenas prácticas de ingeniería de software y metodologías ágiles.  
 
-## 🛠 Tecnologías utilizadas
+## Tecnologías utilizadas
 - **Backend:** .NET 9, Entity Framework, Identity, JWT Authentication  
 - **Frontend:** Angular 19, TailwindCSS  
 - **Base de datos:** SQL Server  
