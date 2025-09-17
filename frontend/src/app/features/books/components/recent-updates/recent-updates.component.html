@@ -1,0 +1,8 @@
+<section class="py-4">
+  <!-- Grid responsive -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-4 place-items-center md:place-items-stretch">
+    @for (book of recentBooks(); track book.id) {
+        <book-update-card [book]="book"></book-update-card>
+    }
+  </div>
+</section>

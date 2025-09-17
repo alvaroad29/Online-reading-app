@@ -1,0 +1,61 @@
+<div
+  class="fixed bottom-0 left-0 right-0 bg-base-300 px-2 py-3 border-t border-base-content/10 transition-transform duration-300 z-60"
+  [class.translate-y-full]="!showFooter"
+>
+  <div class="max-w-4xl flex justify-between items-center">
+    <div class="flex items-center gap-4 w-full justify-end">
+      <!-- Botón Anterior -->
+       <a
+        class="flex items-center gap-1 text-sm px-2 py-1 hover:text-primary cursor-pointer transition-colors"
+        [class.pointer-events-none]="previousChapter() === null"
+        [class.opacity-50]="previousChapter() === null"
+        [routerLink]="previousChapter() !== null ? ['/library', bookId(), previousChapter()] : null">
+        <i-lucide [img]="left"></i-lucide>
+        <span class="hidden md:block">Anterior</span>
+      </a>
+
+      <!-- Botón de Configuración -->
+      <button
+        (click)="toggleSettings()"
+        class="flex items-center justify-center w-10 h-10 rounded-full cursor-pointer transition-colors hover:text-primary"
+        [class.text-primary]="isSettingsOpen"
+        [class.text-base]="!isSettingsOpen"
+      >
+        <i-lucide [img]="setting" class="w-5 h-5"></i-lucide>
+      </button>
+
+      <!-- Botón Siguiente -->
+       <a
+        class="flex items-center gap-1 text-sm px-2 py-1 hover:text-primary cursor-pointer transition-colors"
+        [class.pointer-events-none]="nextChapter() === null"
+        [class.opacity-50]="nextChapter() === null"
+        [routerLink]="nextChapter() !== null ? ['/library', bookId(), nextChapter()] : null">
+        <span class="hidden md:block">Siguiente</span>
+        <i-lucide [img]="right"></i-lucide>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- Menú de Configuración -->
+
+<reader-settings-menu
+  [isOpen]="isSettingsOpen"
+  (closeEvent)="closeSettings()"
+  (settingsChange)="onSettingsChange($event)"
+></reader-settings-menu>
+<!--
+translate-y:
+Esta es la clase base en Tailwind CSS para el desplazamiento vertical, utilizando la función translateY() de CSS.
+full:
+Esta parte de la clase especifica la cantidad de desplazamiento. En Tailwind, full representa el 100% del tamaño del elemento padre en la dirección especificada (en este caso, verticalmente).
+-->
+
+<!--
+fixed bottom-0: el footer se queda fijo abajo.
+
+transition-transform: animación suave cuando aparece o desaparece.
+
+[class.translate-y-full]="!showFooter": si showFooter es false, se le aplica translate-y-full, que lo empuja hacia abajo fuera de pantalla (efecto de ocultamiento suave).
+-->
